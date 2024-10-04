@@ -1,0 +1,34 @@
+.title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button__container {
+  align-self: start;
+  padding-left: 30px;
+}
+
+.button {
+  font-size: x-large;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contents__container {
+  width: 500px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(120, 228, 255);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
