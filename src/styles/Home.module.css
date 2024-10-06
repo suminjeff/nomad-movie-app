@@ -1,5 +1,7 @@
 .title {
   text-align: center;
+  margin-top: 75px;
+  margin-bottom: 75px;
 }
 
 .container {
@@ -7,4 +9,5 @@
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+  padding-bottom: 200px;
 }

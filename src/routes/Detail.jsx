@@ -25,17 +25,13 @@ function Detail() {
         <Loading />
       ) : (
         <div className={styles.container}>
+          <div
+            className={styles.background}
+            style={{ backgroundImage: `url(${movie.large_cover_image})` }}
+          ></div>
           <h1 className={styles.title}>
             {movie.title} ({movie.year})
           </h1>
-          <div className={styles.button__container}>
-            <button
-              className={styles.button}
-              onClick={() => window.history.back()}
-            >
-              Back
-            </button>
-          </div>
           <div className={styles.contents__container}>
             <img src={`${movie.large_cover_image}`} alt="" />
             <h2>
@@ -44,14 +40,28 @@ function Detail() {
                 Link
               </a>
             </h2>
-            <p>Runtime: {movie.runtime}</p>
-            <p>Rating: ★ {movie.rating}</p>
-            <p>Genre</p>
-            {movie.genres.map((genre, index) => {
-              return <p>{genre}</p>;
-            })}
-            <p>Description</p>
-            <p>{movie.description_full}</p>
+            <div className={styles.rating}>
+              <p className={styles.rating__text}>Rating</p>
+              <p className={styles.rating__star}>★ {movie.rating}</p>
+            </div>
+            <div className={styles.genre__contents}>
+              <h2 className={styles.genre__text}>Genre</h2>
+              <div className={styles.genre__container}>
+                {movie.genres.map((genre, index) => {
+                  return (
+                    <p key={index} className={styles.genre}>
+                      {genre}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+            {movie.description_full && (
+              <>
+                <h2>Description</h2>
+                <p>{movie.description_full}</p>
+              </>
+            )}
           </div>
         </div>
       )}

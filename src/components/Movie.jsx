@@ -4,27 +4,33 @@ import styles from "../styles/Movie.module.css";
 import { useState } from "react";
 
 function Movie({ id, coverImg, title, summary, genres, year, rating }) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <>
-      <Link to={`/movie/${id}`} className={styles.link}>
-        <div
-          className={styles.card}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          style={{ backgroundImage: `url(${coverImg})` }}
-        >
-          {isHovered && (
-            <div className={styles.contents__container}>
-              <p>
+      <div className={styles.card}>
+        <div className={styles.card__inner}>
+          <div className={styles.card__front}>
+            <img src={coverImg} alt={title} />
+          </div>
+          <div className={styles.card__back}>
+            <img
+              src={coverImg}
+              alt={title}
+              className={styles.card__back__img}
+            />
+            <div className={styles.card__back__contents}>
+              <p className={styles.title}>
                 {title} ({year})
               </p>
-              <p>★ {rating}</p>
+              <p className={styles.rating}>★ {rating}</p>
+              <div className={styles.link__button}>
+                <Link to={`/movie/${id}`} className={styles.link}>
+                  details
+                </Link>
+              </div>
             </div>
-          )}
+          </div>
         </div>
-      </Link>
+      </div>
     </>
   );
 }
