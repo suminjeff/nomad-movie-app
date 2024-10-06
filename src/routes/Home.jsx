@@ -25,7 +25,7 @@ function Home() {
         <Loading />
       ) : (
         <div>
-          <h1 className={styles.title}>Nomad Movie App</h1>
+          <h1 className={styles.title}>Movie App</h1>
           <div className={styles.container}>
             {movies.map((movie) => (
               <Movie
